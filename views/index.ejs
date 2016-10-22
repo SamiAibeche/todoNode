@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks List With Node</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../public/src/css/main.css">
+</head>
+<body>
+<div class="contenair text-center">
+    <div class="row">
+        <div class="cols-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3">
+            <h3 class="mainTitle">TODO LIST</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cols-xs-12 col-xs-offset-0 col-sm-6 col-sm-offset-3 mainBlocTasks">
+            <% if(tasks){ %>
+                <% if(tasks.length > 0 ) { %>
+                <ul>
+                    <% tasks.forEach(function(task) { %>
+                    <li><p>
+                        <% if(task.status){ %>
+                        <span class="fleft fa fa-circle checkIcon done"></span>
+                        <span class="fleft task done"><%= task.task %></span>
+                        <% } else { %>
+                        <span class="fleft fa fa-circle-o checkIcon"></span>
+                        <span class="fleft task"><%= task.task %></span>
+                        <% } %>
+                        <span class="fright fa fa-times delIcon "></span>
+                    </p></li>
+                    <br>
+                    <% }); %>
+                </ul>
+                <% } else { %>
+                <p> Great ! You have nothing to do yet ! </p>
+                <% } %>
+            <% } else { %>
+            <p> Oops ! Something went wrong ...</p>
+            <% } %>
+        </div>
+    </div>
+    <div class="row">
+        <form action="/addTask" type="POST">
+            <input type="text" name="taskAdded">
+            <input type="submit">
+        </form>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../public/src/js/main.js"></script>
+</body>
+</html>
