@@ -24,6 +24,19 @@ body{
     margin: 0 8px 0 8px;
     cursor: pointer;
 }
+.addTask{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding-bottom: 2px;
+}
+#frmAdd > input{
+    border: none;
+    border-bottom: 1px solid lavender;
+    font-size: 1.3em;
+    outline: none;
+}
 .fleft{
     float: left;
 }

@@ -23,12 +23,12 @@
                     <li><p>
                         <% if(task.status){ %>
                         <span class="fleft fa fa-circle checkIcon done"></span>
-                        <span class="fleft task done"><%= task.task %></span>
+                        <span class="fleft task done" id="<%= task.id %>"><%= task.task %></span>
                         <% } else { %>
                         <span class="fleft fa fa-circle-o checkIcon"></span>
-                        <span class="fleft task"><%= task.task %></span>
+                        <span class="fleft task" id="<%= task.id %>"><%= task.task %></span>
                         <% } %>
-                        <span class="fright fa fa-times delIcon "></span>
+                        <span class="fright fa fa-times delIcon"></span>
                     </p></li>
                     <br>
                     <% }); %>
@@ -42,10 +42,12 @@
         </div>
     </div>
     <div class="row">
-        <form action="/addTask" type="POST">
-            <input type="text" name="taskAdded">
-            <input type="submit">
+        <div class="col-xs-offset-0 col-sm-6 col-sm-offset-3">
+        <form action="/addTask" id="frmAdd" type="POST">
+                <input type="text" class="col-xs-11" name="taskAdded">
+                <input type="submit" value="ADD" class="col-xs-1 addTask"></span>
         </form>
+        </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
